@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yukesh S | Software Engineer & ML Enthusiast</title>
+    <meta name="description" content="Portfolio of Yukesh S — Software Engineer, ML Enthusiast, and Full-Stack Developer. Explore projects in AI, Cloud, and Web Development." />
+    <meta name="keywords" content="Yukesh S, Software Engineer, ML, Portfolio, Full Stack Developer, AI, Python, Node.js" />
+    <meta name="author" content="Yukesh S" />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Yukesh S | Software Engineer & ML Enthusiast" />
+    <meta property="og:description" content="Explore the portfolio of Yukesh S — Software Engineer specializing in AI, Cloud, and Full-Stack Development." />
+    <meta property="og:url" content="https://yukeshs05.github.io" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+
+    <!-- ============================================ -->
+    <!-- SECTION 0: CINEMATIC INTRO OVERLAY           -->
+    <!-- ============================================ -->
+    <div id="intro-overlay" class="intro-overlay">
+      <div class="intro-reactor">
+        <div class="reactor-core"></div>
+        <div class="reactor-ring reactor-ring-1"></div>
+        <div class="reactor-ring reactor-ring-2"></div>
+        <div class="reactor-ring reactor-ring-3"></div>
+      </div>
+      <p class="intro-text" id="intro-text">SYSTEM INITIALIZING...</p>
+      <div class="visor-left"></div>
+      <div class="visor-right"></div>
+      <button class="skip-btn" id="skip-btn">SKIP ▶</button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: NAVIGATION BAR                    -->
+    <!-- ============================================ -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo" id="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">YS</span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: HERO                              -->
+    <!-- ============================================ -->
+    <section id="hero" class="hero">
+      <div class="hex-grid-bg"></div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hud-bracket-top-left"></div>
+          <p class="hero-greeting hud-text">// WELCOME TO MY WORLD</p>
+          <h1 class="hero-title">
+            <span class="hero-line-1">I'm</span>
+            <span class="hero-name gradient-text">YUKESH S</span>
+          </h1>
+          <div class="hero-subtitle">
+            <span class="subtitle-prefix">&gt;&gt;</span>
+            <span id="typewriter" class="typewriter-text"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+          <p class="hero-description">
+            Motivated MTech student in Software Engineering, passionate about
+            building intelligent systems and scalable applications.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" id="cta-projects">
+              <span class="btn-text">VIEW PROJECTS</span>
+              <span class="btn-icon">→</span>
+            </a>
+            <a href="#contact" class="btn btn-outline" id="cta-contact">
+              <span class="btn-text">CONTACT ME</span>
+              <span class="btn-icon">→</span>
+            </a>
+          </div>
+          <div class="hud-bracket-bottom-right"></div>
+        </div>
+        <div class="hero-illustration" id="hero-illustration">
+          <div class="illustration-container">
+            <img
+              src="/assets/developer-sketch.png"
+              alt="Yukesh S - Developer Illustration"
+              class="illustration-normal"
+              id="illustration-normal"
+            />
+            <img
+              src="/assets/developer-armored.png"
+              alt="Yukesh S - Tech Armor Illustration"
+              class="illustration-armored"
+              id="illustration-armored"
+            />
+            <div class="reveal-circle" id="reveal-circle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator" id="scroll-indicator">
+        <span class="scroll-text">SCROLL DOWN</span>
+        <div class="scroll-arrow">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: ABOUT / MISSION BRIEF             -->
+    <!-- ============================================ -->
+    <section id="about" class="about">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">&lt; MISSION BRIEF /&gt;</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="about-grid">
+          <div class="about-content reveal-up">
+            <div class="about-card glass-panel">
+              <div class="card-corner card-corner-tl"></div>
+              <div class="card-corner card-corner-br"></div>
+              <h3 class="about-heading hud-text">PERSONNEL FILE</h3>
+              <p class="about-text">
+                I'm a motivated MTech student in Software Engineering at VIT University, Vellore.
+                I'm committed to continuous learning and ready to contribute technical, analytical,
+                and collaborative skills to the professional environment. My passion lies at the
+                intersection of Machine Learning, Cloud Computing, and Full-Stack Development.
+              </p>
+              <div class="about-stats">
+                <div class="stat-item">
+                  <span class="stat-value" data-count="7">0</span>
+                  <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" data-count="6">0</span>
+                  <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" data-count="3">0</span>
+                  <span class="stat-label">Certifications</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-timeline reveal-up" style="--delay: 0.2s">
+            <h3 class="timeline-heading hud-text">EDUCATION LOG</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content glass-panel">
+                  <div class="card-corner card-corner-tl"></div>
+                  <span class="timeline-date">AUG 2023 — AUG 2028</span>
+                  <h4 class="timeline-title">M.Tech Integrated Software Engineering</h4>
+                  <p class="timeline-place">VIT University, Vellore</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content glass-panel">
+                  <div class="card-corner card-corner-tl"></div>
+                  <span class="timeline-date">JUL 2021 — MAY 2023</span>
+                  <h4 class="timeline-title">Higher Secondary (HSLC)</h4>
+                  <p class="timeline-place">Sunbeam Matric Hr. Sec. School, Mettukulam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: SKILLS / TECH ARSENAL             -->
+    <!-- ============================================ -->
+    <section id="skills" class="skills">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">&lt; TECH ARSENAL /&gt;</span>
+          <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">⟨/⟩</span>
+              <h3 class="skill-category">LANGUAGES</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">🧠</span>
+              <h3 class="skill-category">ML & AI</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Keras</span>
+              <span class="skill-tag">scikit-learn</span>
+              <span class="skill-tag">XGBoost</span>
+              <span class="skill-tag">OpenCV</span>
+              <span class="skill-tag">CNN</span>
+              <span class="skill-tag">BiLSTM</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">🌐</span>
+              <h3 class="skill-category">WEB & BACKEND</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">☁️</span>
+              <h3 class="skill-category">DEVOPS & CLOUD</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Google Cloud</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">🗄️</span>
+              <h3 class="skill-category">DATABASES</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">OracleSQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="skill-card-header">
+              <span class="skill-icon">🛠️</span>
+              <h3 class="skill-category">TOOLS</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">Google Colab</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Power Query</span>
+              <span class="skill-tag">VBA</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: PROJECTS / MISSION LOG            -->
+    <!-- ============================================ -->
+    <section id="projects" class="projects">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">[ MISSION LOG ]</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">🧠</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">NEURAL SENTINEL</h3>
+            <p class="project-subtitle">EEG-Based Epileptic Seizure Detection</p>
+            <p class="project-desc">
+              Compared 6 deep learning architectures on 8,000 EEG samples; best model
+              (CNN+BiLSTM+Attention) achieved 90.58% accuracy and 98.45% AUC-ROC.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">AUC-ROC:</span>
+              <span class="metric-value gradient-text">98.45%</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">TensorFlow</span>
+              <span class="project-tag">Keras</span>
+              <span class="project-tag">CNN</span>
+              <span class="project-tag">BiLSTM</span>
+            </div>
+            <a href="https://github.com/YukeshS05/BEED_Epileptic_Seizure_Detection" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">☁️</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">CLOUD NEXUS</h3>
+            <p class="project-subtitle">Contact Management Microservice</p>
+            <p class="project-desc">
+              Production-ready REST API with Kubernetes deployment (2 replicas, liveness probes)
+              and automated CI/CD via GitHub Actions running 9 Jest tests on every commit.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Tests:</span>
+              <span class="metric-value gradient-text">9 Passing</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">K8s</span>
+            </div>
+            <a href="https://github.com/YukeshS05/contact-management-microservice" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">🍽️</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">FOODWISE AI</h3>
+            <p class="project-subtitle">Food Demand Prediction & Waste Reduction</p>
+            <p class="project-desc">
+              Predicted hostel food demand with R²>0.90 and MAE&lt;5 meals; identified ₹81,000+
+              in avoidable waste; deployed Streamlit dashboard with NGO redistribution alerts.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Savings:</span>
+              <span class="metric-value gradient-text">₹81,000+</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Random Forest</span>
+              <span class="project-tag">Streamlit</span>
+              <span class="project-tag">scikit-learn</span>
+            </div>
+            <a href="https://github.com/YukeshS05/FoodWise-AI" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">👁️</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">FACE LOCK</h3>
+            <p class="project-subtitle">Real-Time Face Detection & Recognition</p>
+            <p class="project-desc">
+              Live webcam system classifying known (green box) vs unknown (red box) faces
+              in real time using LBPH algorithm with live FPS counter and screenshot capture.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Speed:</span>
+              <span class="metric-value gradient-text">Real-Time</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">C++17</span>
+              <span class="project-tag">OpenCV 4.12</span>
+              <span class="project-tag">LBPH</span>
+              <span class="project-tag">vcpkg</span>
+            </div>
+            <a href="https://github.com/YukeshS05/face-recognition-opencv" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">🏏</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">IPL ORACLE</h3>
+            <p class="project-subtitle">IPL Data Analysis & Match Outcome Prediction</p>
+            <p class="project-desc">
+              Analysed 17 IPL seasons (1,095 matches, 260,920 deliveries); engineered 11
+              features, compared 3 ML models, achieved 55.50% accuracy with live match prediction.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Data:</span>
+              <span class="metric-value gradient-text">260K+ rows</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">R</span>
+              <span class="project-tag">ggplot2</span>
+              <span class="project-tag">caret</span>
+              <span class="project-tag">Random Forest</span>
+            </div>
+            <a href="https://github.com/YukeshS05/IPL-Data-Analysis-R" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">🎬</span>
+              <span class="project-status status-complete">COMPLETE</span>
+            </div>
+            <h3 class="project-title">RATE CIPHER</h3>
+            <p class="project-subtitle">Movie Rating Categorization</p>
+            <p class="project-desc">
+              XGBoost achieved 66.30% accuracy on MovieLens 100K dataset (9,724 movies)
+              using 26 engineered features across 100,836 ratings.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Dataset:</span>
+              <span class="metric-value gradient-text">100K+ ratings</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">XGBoost</span>
+              <span class="project-tag">scikit-learn</span>
+              <span class="project-tag">Pandas</span>
+            </div>
+            <a href="https://github.com/YukeshS05/movie-rating-categorization" target="_blank" rel="noopener" class="project-link">
+              VIEW CODE <span>→</span>
+            </a>
+          </div>
+
+          <div class="project-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <div class="card-corner card-corner-br"></div>
+            <div class="project-header">
+              <span class="project-icon">📄</span>
+              <span class="project-status status-wip">IN PROGRESS</span>
+            </div>
+            <h3 class="project-title">RESUME FORGE</h3>
+            <p class="project-subtitle">AI-Powered Resume Analyzer SaaS</p>
+            <p class="project-desc">
+              Building a web app to analyze resumes using NLP and Generative AI,
+              providing actionable improvement suggestions.
+            </p>
+            <div class="project-metric">
+              <span class="metric-label">Status:</span>
+              <span class="metric-value gradient-text">Building 🔧</span>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">Generative AI</span>
+            </div>
+            <a href="#" class="project-link disabled">
+              COMING SOON <span>⏳</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: ACHIEVEMENTS / COMMENDATIONS      -->
+    <!-- ============================================ -->
+    <section id="achievements" class="achievements">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">&lt; COMMENDATIONS /&gt;</span>
+          <h2 class="section-title">Achievements & <span class="gradient-text">Certifications</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="achievements-grid">
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">☁️</span>
+            <h3 class="achievement-title">Google Cloud Skill Boost</h3>
+            <p class="achievement-desc">Introduction to Generative AI, Large Language Models & Responsible AI</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">📊</span>
+            <h3 class="achievement-title">Excel Champs — Power Query</h3>
+            <p class="achievement-desc">Advanced Power Query skills for data transformation and analysis</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">💻</span>
+            <h3 class="achievement-title">Excel Champs — VBA</h3>
+            <p class="achievement-desc">VBA Programming for automation and advanced Excel functionality</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">🏅</span>
+            <h3 class="achievement-title">Grandmaster Abacus Champion</h3>
+            <p class="achievement-desc">Achieved Grandmaster level in competitive mental arithmetic</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">🤾</span>
+            <h3 class="achievement-title">State-Level Handball Medalist</h3>
+            <p class="achievement-desc">Represented school at state-level handball championship</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="red">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">👑</span>
+            <h3 class="achievement-title">School Pupil Leader</h3>
+            <p class="achievement-desc">Elected as School Pupil Leader demonstrating leadership qualities</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="gold">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">⌨️</span>
+            <h3 class="achievement-title">Senior Grade Typewriting</h3>
+            <p class="achievement-desc">Qualified Senior Grade Typewriting certification (English)</p>
+          </div>
+
+          <div class="achievement-card glass-panel reveal-up stagger" data-accent="cyan">
+            <div class="card-corner card-corner-tl"></div>
+            <span class="achievement-icon">🏆</span>
+            <h3 class="achievement-title">Inter-School Awards</h3>
+            <p class="achievement-desc">Multiple awards in speech, poster drawing, and other competitions</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: CONTACT / OPEN TRANSMISSION       -->
+    <!-- ============================================ -->
+    <section id="contact" class="contact">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">[ OPEN TRANSMISSION ]</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal-up">
+            <h3 class="contact-heading hud-text">TRANSMISSION CHANNELS</h3>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:yukesh.s.dev@gmail.com" class="contact-value">yukesh.s.dev@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">+91 9344064724</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Vellore, Tamil Nadu, India</span>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="https://linkedin.com/in/yukesh-s" target="_blank" rel="noopener" class="social-link" id="social-linkedin" aria-label="LinkedIn Profile">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://github.com/YukeshS05" target="_blank" rel="noopener" class="social-link" id="social-github" aria-label="GitHub Profile">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="mailto:yukesh.s.dev@gmail.com" class="social-link" id="social-email" aria-label="Send Email">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-wrapper reveal-up" style="--delay: 0.2s">
+            <form class="contact-form glass-panel" id="contact-form">
+              <div class="card-corner card-corner-tl"></div>
+              <div class="card-corner card-corner-br"></div>
+              <h3 class="form-heading hud-text">SEND TRANSMISSION</h3>
+              <div class="form-group">
+                <label for="from_name" class="form-label">IDENTIFIER</label>
+                <input type="text" id="from_name" name="from_name" class="form-input" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label for="reply_to" class="form-label">RETURN FREQUENCY</label>
+                <input type="email" id="reply_to" name="reply_to" class="form-input" placeholder="your.email@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">MESSAGE</label>
+                <textarea id="message" name="message" class="form-input form-textarea" placeholder="Your message..." rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                <span class="btn-text">TRANSMIT MESSAGE</span>
+                <span class="btn-icon">→</span>
+              </button>
+              <div class="form-status" id="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: FOOTER                            -->
+    <!-- ============================================ -->
+    <footer class="footer">
+      <div class="footer-line"></div>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="footer-logo">
+              <span class="logo-bracket">&lt;</span>
+              <span class="logo-name">YUKESH S</span>
+              <span class="logo-bracket">/&gt;</span>
+            </span>
+            <p class="footer-tagline">Designed & Built with ⚡ by Yukesh S</p>
+          </div>
+          <div class="footer-nav">
+            <a href="#hero" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#skills" class="footer-link">Skills</a>
+            <a href="#projects" class="footer-link">Projects</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/in/yukesh-s" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/YukeshS05" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Yukesh S. All systems operational.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
