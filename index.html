@@ -19,25 +19,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="module" crossorigin src="/assets/index-BoKJZyzf.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-dsTL4V3O.css">
+    <script type="module" crossorigin src="/assets/index-DRh94TTv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C3QgBeNu.css">
   </head>
   <body>
 
     <!-- ============================================ -->
-    <!-- SECTION 0: CINEMATIC INTRO OVERLAY           -->
+    <!-- SECTION 0: IRON MAN HELMET POV INTRO         -->
     <!-- ============================================ -->
-    <div id="intro-overlay" class="intro-overlay">
-      <div class="intro-reactor">
-        <div class="reactor-core"></div>
-        <div class="reactor-ring reactor-ring-1"></div>
-        <div class="reactor-ring reactor-ring-2"></div>
-        <div class="reactor-ring reactor-ring-3"></div>
+    <div id="intro-overlay" class="intro-overlay helmet-pov">
+      <!-- Helmet mask shape (the dark frame around the eye slits) -->
+      <div class="helmet-mask" id="helmet-mask">
+        <div class="helmet-mask-inner"></div>
       </div>
-      <p class="intro-text" id="intro-text">SYSTEM INITIALIZING...</p>
-      <div class="visor-left"></div>
-      <div class="visor-right"></div>
+
+      <!-- HUD elements inside the helmet -->
+      <div class="hud-layer" id="hud-layer">
+        <!-- Top-left system readouts -->
+        <div class="hud-readout hud-top-left">
+          <span class="hud-line">SYS: <span class="hud-val cyan">BOOTING</span></span>
+          <span class="hud-line">PWR: <span class="hud-val gold">100%</span></span>
+          <span class="hud-line">ARC: <span class="hud-val cyan">STABLE</span></span>
+        </div>
+
+        <!-- Top-right readouts -->
+        <div class="hud-readout hud-top-right">
+          <span class="hud-line">NEURAL: <span class="hud-val gold">ONLINE</span></span>
+          <span class="hud-line">TARGET: <span class="hud-val red">LOCKED</span></span>
+          <span class="hud-line">COMMS: <span class="hud-val cyan">ACTIVE</span></span>
+        </div>
+
+        <!-- Center targeting reticle -->
+        <div class="hud-reticle">
+          <div class="reticle-ring reticle-outer"></div>
+          <div class="reticle-ring reticle-inner"></div>
+          <div class="reticle-crosshair-h"></div>
+          <div class="reticle-crosshair-v"></div>
+          <div class="reticle-dot"></div>
+        </div>
+
+        <!-- Bottom status bar -->
+        <div class="hud-bottom-bar">
+          <div class="hud-progress-track">
+            <div class="hud-progress-fill" id="hud-progress"></div>
+          </div>
+          <p class="hud-status-text" id="intro-text">INITIALIZING JARVIS INTERFACE...</p>
+        </div>
+
+        <!-- Scan line sweeping down -->
+        <div class="hud-scanline" id="hud-scanline"></div>
+      </div>
+
       <button class="skip-btn" id="skip-btn">SKIP ▶</button>
     </div>
 
