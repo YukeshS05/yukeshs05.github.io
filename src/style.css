@@ -149,7 +149,7 @@ ol {
 }
 
 /* ------------------------------------------
-   3. INTRO OVERLAY
+   3. INTRO OVERLAY — IRON MAN HELMET POV
    ------------------------------------------ */
 .intro-overlay {
   position: fixed;
@@ -159,117 +159,284 @@ ol {
   height: 100%;
   z-index: 9999;
   background: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  overflow: hidden;
 }
 
 .intro-overlay.done {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* Helmet mask — the dark frame creating the "looking through eye slits" effect */
+.helmet-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.helmet-mask-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Iron Man mask shape — two eye slits merged into one visor */
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 0%, transparent 40%, rgba(20, 10, 5, 0.6) 55%, rgba(20, 10, 5, 0.85) 65%, #0A0402 80%);
+  /* Inner edge glow — warm red/gold like inside the helmet */
+  box-shadow: inset 0 0 150px rgba(230, 57, 70, 0.15), inset 0 0 300px rgba(10, 4, 2, 0.8);
+  transition: opacity 1.2s ease;
+}
+
+/* Mask opens — the visor lifts */
+.intro-overlay.opening .helmet-mask-inner {
+  opacity: 0;
+  transition: opacity 1.5s cubic-bezier(0.25, 0, 0.3, 1);
+}
+
+/* HUD layer — all the heads-up display elements */
+.hud-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  opacity: 1;
   transition: opacity 0.8s ease;
 }
 
-.reactor-core {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--jarvis-cyan);
-  box-shadow: 0 0 20px var(--glow-cyan), 0 0 40px var(--glow-cyan), 0 0 60px rgba(0, 212, 255, 0.15);
-  animation: pulse 2s infinite;
+.intro-overlay.opening .hud-layer {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* HUD readout panels */
+.hud-readout {
   position: absolute;
-  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 212, 255, 0.03);
+  animation: hudFadeIn 0.5s ease forwards;
+  opacity: 0;
 }
 
-.reactor-ring {
+.hud-top-left {
+  top: 12%;
+  left: 8%;
+  animation-delay: 0.3s;
+}
+
+.hud-top-right {
+  top: 12%;
+  right: 8%;
+  text-align: right;
+  animation-delay: 0.5s;
+}
+
+.hud-line {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: rgba(0, 212, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.hud-val {
+  font-weight: 600;
+}
+
+.hud-val.cyan {
+  color: var(--jarvis-cyan);
+  text-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.hud-val.gold {
+  color: var(--arc-gold);
+  text-shadow: 0 0 8px var(--glow-gold);
+}
+
+.hud-val.red {
+  color: var(--stark-red);
+  text-shadow: 0 0 8px var(--glow-red);
+}
+
+/* Center targeting reticle */
+.hud-reticle {
   position: absolute;
-  border-radius: 50%;
-  border: 2px solid var(--jarvis-cyan);
-  opacity: 0.6;
-}
-
-.reactor-ring-1 {
-  width: 80px;
-  height: 80px;
-  animation: spin 3s linear infinite;
-  border-style: dashed;
-}
-
-.reactor-ring-2 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 120px;
   height: 120px;
-  animation: spin 5s linear infinite reverse;
-  border-style: dotted;
 }
 
-.reactor-ring-3 {
-  width: 160px;
-  height: 160px;
-  animation: spin 7s linear infinite;
-  border-top-color: transparent;
-  border-left-color: transparent;
-}
-
-.visor-left,
-.visor-right {
+.reticle-ring {
   position: absolute;
-  top: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reticle-outer {
+  width: 120px;
+  height: 120px;
+  border-style: dashed;
+  animation: spin 8s linear infinite;
+}
+
+.reticle-inner {
+  width: 70px;
+  height: 70px;
+  animation: spin 5s linear infinite reverse;
+}
+
+.reticle-crosshair-h,
+.reticle-crosshair-v {
+  position: absolute;
+  background: rgba(0, 212, 255, 0.2);
+  top: 50%;
+  left: 50%;
+}
+
+.reticle-crosshair-h {
+  width: 120px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.reticle-crosshair-v {
+  width: 1px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+}
+
+.reticle-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--jarvis-cyan);
+  box-shadow: 0 0 10px var(--jarvis-cyan);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+/* Bottom status bar */
+.hud-bottom-bar {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 50%;
+  max-width: 500px;
+  text-align: center;
+  animation: hudFadeIn 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
+}
+
+.hud-progress-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.hud-progress-fill {
+  width: 0%;
   height: 100%;
-  background: #111118;
-  z-index: 10;
-  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  background: linear-gradient(90deg, var(--stark-red), var(--arc-gold), var(--jarvis-cyan));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-cyan);
 }
 
-.visor-left {
-  left: 0;
-}
-
-.visor-right {
-  right: 0;
-}
-
-.intro-overlay.opening .visor-left {
-  transform: translateX(-100%);
-}
-
-.intro-overlay.opening .visor-right {
-  transform: translateX(100%);
-}
-
-.intro-text {
+.hud-status-text {
   font-family: var(--font-heading);
   color: var(--jarvis-cyan);
-  font-size: 1.2rem;
+  font-size: 0.85rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  z-index: 4;
-  margin-top: 120px;
   animation: flicker 3s infinite;
 }
 
+/* Scan line */
+.hud-scanline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+  z-index: 13;
+  top: 0;
+  animation: scanDown 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Skip button — same as before but higher z-index */
 .skip-btn {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
   background: transparent;
-  border: 1px solid var(--jarvis-cyan);
-  color: var(--jarvis-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: rgba(0, 212, 255, 0.6);
   font-family: var(--font-heading);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 0.5rem 1.25rem;
+  padding: 0.4rem 1rem;
   cursor: pointer;
   z-index: 20;
   transition: all 0.3s ease;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .skip-btn:hover {
   background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 20px var(--glow-cyan);
+  box-shadow: 0 0 15px var(--glow-cyan);
+  color: var(--jarvis-cyan);
+  border-color: var(--jarvis-cyan);
+}
+
+/* Helmet opening animation — the whole overlay slides up like a visor */
+.intro-overlay.opening {
+  animation: visorLift 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes visorLift {
+  0% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes hudFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hud-top-left { animation: hudFadeIn 0.5s ease forwards; animation-delay: 0.3s; }
+.hud-top-right { animation: hudFadeIn 0.5s ease forwards; animation-delay: 0.5s; }
+
+@keyframes scanDown {
+  0% { top: -2px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 /* ------------------------------------------

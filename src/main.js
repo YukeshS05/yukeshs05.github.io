@@ -19,39 +19,49 @@ const CONFIG = {
   scrollRevealThreshold: 0.15,
 };
 
-// ─── INTRO ANIMATION ───────────────────────────
+// ─── INTRO ANIMATION — HELMET POV ──────────────
 function initIntro() {
   const overlay = document.getElementById('intro-overlay');
   const introText = document.getElementById('intro-text');
   const skipBtn = document.getElementById('skip-btn');
+  const progressBar = document.getElementById('hud-progress');
 
   if (!overlay || !introText || !skipBtn) return;
 
-  // Use sessionStorage: intro plays once per browser session (new tab = replay)
+  // Use sessionStorage: intro plays once per browser session
   if (sessionStorage.getItem('portfolio-intro-done')) {
     overlay.classList.add('done');
     document.body.style.overflow = '';
     return;
   }
 
-  // Lock scroll during intro
   document.body.style.overflow = 'hidden';
 
   const messages = [
-    'SYSTEM INITIALIZING...',
-    'LOADING MODULES...',
-    'CALIBRATING SENSORS...',
-    'DEPLOYING J.A.R.V.I.S...',
-    'ALL SYSTEMS ONLINE',
+    { text: 'INITIALIZING JARVIS INTERFACE...', progress: 15 },
+    { text: 'LOADING NEURAL NETWORKS...', progress: 35 },
+    { text: 'CALIBRATING HUD SENSORS...', progress: 55 },
+    { text: 'DEPLOYING DEFENSE SYSTEMS...', progress: 75 },
+    { text: 'ALL SYSTEMS ONLINE', progress: 100 },
   ];
 
   let messageIndex = 0;
+
+  // Animate progress bar and messages
   const messageInterval = setInterval(() => {
     messageIndex++;
     if (messageIndex < messages.length) {
-      introText.textContent = messages[messageIndex];
+      introText.textContent = messages[messageIndex].text;
+      if (progressBar) {
+        progressBar.style.width = messages[messageIndex].progress + '%';
+      }
     }
-  }, 700);
+  }, 650);
+
+  // Set initial progress
+  if (progressBar) {
+    progressBar.style.width = messages[0].progress + '%';
+  }
 
   // Skip button
   skipBtn.addEventListener('click', () => {
@@ -59,15 +69,11 @@ function initIntro() {
     finishIntro(overlay);
   });
 
-  // Auto-finish after duration
+  // Auto-finish: visor lifts after messages complete
   setTimeout(() => {
     clearInterval(messageInterval);
-    overlay.classList.add('opening');
-
-    setTimeout(() => {
-      finishIntro(overlay);
-    }, 1200);
-  }, CONFIG.introDuration - 1200);
+    finishIntro(overlay);
+  }, CONFIG.introDuration);
 }
 
 function finishIntro(overlay) {
@@ -77,7 +83,7 @@ function finishIntro(overlay) {
     document.body.style.overflow = '';
     sessionStorage.setItem('portfolio-intro-done', 'true');
     initHeroAnimations();
-  }, 800);
+  }, 1500);
 }
 
 // Replay intro — accessible via logo click or console
@@ -87,7 +93,9 @@ function replayIntro() {
   if (overlay) {
     overlay.classList.remove('done', 'opening');
     const introText = document.getElementById('intro-text');
-    if (introText) introText.textContent = 'SYSTEM INITIALIZING...';
+    if (introText) introText.textContent = 'INITIALIZING JARVIS INTERFACE...';
+    const progressBar = document.getElementById('hud-progress');
+    if (progressBar) progressBar.style.width = '0%';
     initIntro();
   }
 }
