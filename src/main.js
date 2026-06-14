@@ -77,21 +77,21 @@ function initIntro() {
 }
 
 function finishIntro(overlay) {
-  // Step 1: Mask panels slide apart + HUD fades
+  // Step 1: Reactor scales up + HUD fades out
   overlay.classList.add('opening');
 
-  // Step 2: After mask opens, fade out the whole overlay
+  // Step 2: After reactor burst, fade entire overlay
   setTimeout(() => {
     overlay.classList.add('fade-out');
 
-    // Step 3: After fade, hide completely
+    // Step 3: After fade, hide and unlock scroll
     setTimeout(() => {
       overlay.classList.add('done');
       document.body.style.overflow = '';
       sessionStorage.setItem('portfolio-intro-done', 'true');
       initHeroAnimations();
-    }, 800);
-  }, 1600);
+    }, 600);
+  }, 1200);
 }
 
 // Replay intro — accessible via logo triple-click or console
