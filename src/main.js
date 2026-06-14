@@ -77,23 +77,31 @@ function initIntro() {
 }
 
 function finishIntro(overlay) {
+  // Step 1: Mask panels slide apart + HUD fades
   overlay.classList.add('opening');
+
+  // Step 2: After mask opens, fade out the whole overlay
   setTimeout(() => {
-    overlay.classList.add('done');
-    document.body.style.overflow = '';
-    sessionStorage.setItem('portfolio-intro-done', 'true');
-    initHeroAnimations();
-  }, 1500);
+    overlay.classList.add('fade-out');
+
+    // Step 3: After fade, hide completely
+    setTimeout(() => {
+      overlay.classList.add('done');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('portfolio-intro-done', 'true');
+      initHeroAnimations();
+    }, 800);
+  }, 1600);
 }
 
-// Replay intro — accessible via logo click or console
+// Replay intro — accessible via logo triple-click or console
 function replayIntro() {
   sessionStorage.removeItem('portfolio-intro-done');
   const overlay = document.getElementById('intro-overlay');
   if (overlay) {
-    overlay.classList.remove('done', 'opening');
+    overlay.classList.remove('done', 'opening', 'fade-out');
     const introText = document.getElementById('intro-text');
-    if (introText) introText.textContent = 'INITIALIZING JARVIS INTERFACE...';
+    if (introText) introText.textContent = 'INITIALIZING J.A.R.V.I.S. INTERFACE...';
     const progressBar = document.getElementById('hud-progress');
     if (progressBar) progressBar.style.width = '0%';
     initIntro();

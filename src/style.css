@@ -149,7 +149,7 @@ ol {
 }
 
 /* ------------------------------------------
-   3. INTRO OVERLAY — IRON MAN HELMET POV
+   3. INTRO — IRON MAN HUD (Pure CSS)
    ------------------------------------------ */
 .intro-overlay {
   position: fixed;
@@ -158,203 +158,189 @@ ol {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: #000000;
+  background: #030810;
   overflow: hidden;
 }
 
 .intro-overlay.done {
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.6s ease;
+  visibility: hidden;
 }
 
-/* Helmet mask — the dark frame creating the "looking through eye slits" effect */
-.helmet-mask {
+/* Hex grid background inside intro */
+.intro-hex-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 15;
-  pointer-events: none;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,212,255,0.2) 40px, rgba(0,212,255,0.2) 41px),
+    repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(0,212,255,0.2) 40px, rgba(0,212,255,0.2) 41px),
+    repeating-linear-gradient(120deg, transparent, transparent 40px, rgba(0,212,255,0.2) 40px, rgba(0,212,255,0.2) 41px);
+  z-index: 1;
+  animation: introGridPulse 4s ease-in-out infinite alternate;
 }
 
-.helmet-mask-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Iron Man mask shape — two eye slits merged into one visor */
-  background: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 0%, transparent 40%, rgba(20, 10, 5, 0.6) 55%, rgba(20, 10, 5, 0.85) 65%, #0A0402 80%);
-  /* Inner edge glow — warm red/gold like inside the helmet */
-  box-shadow: inset 0 0 150px rgba(230, 57, 70, 0.15), inset 0 0 300px rgba(10, 4, 2, 0.8);
-  transition: opacity 1.2s ease;
+@keyframes introGridPulse {
+  0% { opacity: 0.04; }
+  100% { opacity: 0.09; }
 }
 
-/* Mask opens — the visor lifts */
-.intro-overlay.opening .helmet-mask-inner {
-  opacity: 0;
-  transition: opacity 1.5s cubic-bezier(0.25, 0, 0.3, 1);
-}
-
-/* HUD layer — all the heads-up display elements */
-.hud-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 12;
-  opacity: 1;
-  transition: opacity 0.8s ease;
-}
-
-.intro-overlay.opening .hud-layer {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-/* HUD readout panels */
+/* ── HUD CORNER READOUTS ── */
 .hud-readout {
   position: absolute;
+  z-index: 4;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 4px;
-  background: rgba(0, 212, 255, 0.03);
-  animation: hudFadeIn 0.5s ease forwards;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: rgba(0, 200, 80, 0.7);
+  text-transform: uppercase;
   opacity: 0;
+  animation: hudSlideIn 0.6s ease forwards;
 }
 
-.hud-top-left {
-  top: 12%;
-  left: 8%;
+.hud-tl {
+  top: 10%; left: 5%;
   animation-delay: 0.3s;
 }
 
-.hud-top-right {
-  top: 12%;
-  right: 8%;
+.hud-tr {
+  top: 10%; right: 5%;
   text-align: right;
   animation-delay: 0.5s;
 }
 
-.hud-line {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: rgba(0, 212, 255, 0.6);
-  text-transform: uppercase;
+@keyframes hudSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hud-val {
-  font-weight: 600;
-}
+.hud-cyan { color: var(--jarvis-cyan); text-shadow: 0 0 6px var(--glow-cyan); }
+.hud-gold { color: var(--arc-gold); text-shadow: 0 0 6px var(--glow-gold); }
+.hud-red  { color: var(--stark-red); text-shadow: 0 0 6px var(--glow-red); }
 
-.hud-val.cyan {
-  color: var(--jarvis-cyan);
-  text-shadow: 0 0 8px var(--glow-cyan);
-}
-
-.hud-val.gold {
-  color: var(--arc-gold);
-  text-shadow: 0 0 8px var(--glow-gold);
-}
-
-.hud-val.red {
-  color: var(--stark-red);
-  text-shadow: 0 0 8px var(--glow-red);
-}
-
-/* Center targeting reticle */
-.hud-reticle {
+/* ── CENTER REACTOR + TARGETING RETICLE ── */
+.intro-reactor-wrap {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
+  width: 200px; height: 200px;
+  z-index: 4;
 }
 
-.reticle-ring {
+.reticle-outer-ring {
   position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; height: 180px;
+  border: 1px dashed rgba(0, 212, 255, 0.35);
   border-radius: 50%;
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  animation: spin 10s linear infinite;
 }
 
-.reticle-outer {
-  width: 120px;
-  height: 120px;
-  border-style: dashed;
-  animation: spin 8s linear infinite;
-}
-
-.reticle-inner {
-  width: 70px;
-  height: 70px;
-  animation: spin 5s linear infinite reverse;
-}
-
-.reticle-crosshair-h,
-.reticle-crosshair-v {
+.reticle-mid-ring {
   position: absolute;
-  background: rgba(0, 212, 255, 0.2);
-  top: 50%;
-  left: 50%;
-}
-
-.reticle-crosshair-h {
-  width: 120px;
-  height: 1px;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.reticle-crosshair-v {
-  width: 1px;
-  height: 120px;
-  transform: translate(-50%, -50%);
-}
-
-.reticle-dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 110px; height: 110px;
+  border: 1.5px solid rgba(0, 212, 255, 0.25);
   border-radius: 50%;
-  background: var(--jarvis-cyan);
-  box-shadow: 0 0 10px var(--jarvis-cyan);
-  top: 50%;
-  left: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  animation: spin 6s linear infinite reverse;
+}
+
+.reactor-core-intro {
+  position: absolute;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--jarvis-cyan) 40%, rgba(0,212,255,0) 70%);
+  box-shadow: 0 0 20px var(--jarvis-cyan), 0 0 40px var(--glow-cyan), 0 0 80px rgba(0,212,255,0.15);
   animation: pulse 2s infinite;
 }
 
-/* Bottom status bar */
+.reticle-cross-h,
+.reticle-cross-v {
+  position: absolute;
+  background: rgba(0, 212, 255, 0.15);
+  top: 50%; left: 50%;
+}
+
+.reticle-cross-h {
+  width: 200px; height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.reticle-cross-v {
+  width: 1px; height: 200px;
+  transform: translate(-50%, -50%);
+}
+
+.lock-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: rgba(0, 212, 255, 0.5);
+}
+
+.lock-l { left: -60px; }
+.lock-r { right: -60px; }
+
+/* ── SCAN LINE ── */
+.hud-scanline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, rgba(0,212,255,0.4) 30%, rgba(0,212,255,0.7) 50%, rgba(0,212,255,0.4) 70%, transparent 95%);
+  box-shadow: 0 0 15px rgba(0,212,255,0.2);
+  z-index: 5;
+  animation: scanDown 2.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanDown {
+  0% { top: -2px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── BOTTOM STATUS BAR ── */
 .hud-bottom-bar {
   position: absolute;
-  bottom: 15%;
+  bottom: 14%;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
-  max-width: 500px;
+  width: 40%;
+  max-width: 420px;
   text-align: center;
-  animation: hudFadeIn 0.8s ease forwards;
+  z-index: 6;
   opacity: 0;
-  animation-delay: 0.8s;
+  animation: hudFadeUp 0.8s ease 0.7s forwards;
+}
+
+@keyframes hudFadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .hud-progress-track {
   width: 100%;
   height: 3px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.08);
   border-radius: 2px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .hud-progress-fill {
@@ -362,42 +348,91 @@ ol {
   height: 100%;
   background: linear-gradient(90deg, var(--stark-red), var(--arc-gold), var(--jarvis-cyan));
   border-radius: 2px;
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px var(--glow-cyan);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 12px var(--glow-cyan);
 }
 
 .hud-status-text {
   font-family: var(--font-heading);
   color: var(--jarvis-cyan);
-  font-size: 0.85rem;
-  letter-spacing: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  text-shadow: 0 0 10px var(--glow-cyan);
   animation: flicker 3s infinite;
 }
 
-/* Scan line */
-.hud-scanline {
+/* ── BOTTOM HUD LABEL ── */
+.hud-bottom-label {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: rgba(0,212,255,0.35);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: hudFadeUp 0.6s ease 1s forwards;
+}
+
+/* ── MASK PANELS (FACEPLATE OPENING) ── */
+.mask-top,
+.mask-bottom {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
-  z-index: 13;
-  top: 0;
-  animation: scanDown 3s linear infinite;
-  pointer-events: none;
+  height: 50%;
+  background: #030810;
+  z-index: 8;
+  transition: transform 1.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* Skip button — same as before but higher z-index */
+.mask-top {
+  top: 0;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.9);
+}
+
+.mask-bottom {
+  bottom: 0;
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.9);
+}
+
+/* Closed state: only a slit in the middle is visible */
+.helmet-pov .mask-top  { transform: translateY(-18%); }
+.helmet-pov .mask-bottom { transform: translateY(18%); }
+
+/* Opening state: slide fully apart */
+.intro-overlay.opening .mask-top    { transform: translateY(-100%); }
+.intro-overlay.opening .mask-bottom { transform: translateY(100%); }
+
+.intro-overlay.opening .hud-readout,
+.intro-overlay.opening .hud-bottom-bar,
+.intro-overlay.opening .hud-bottom-label,
+.intro-overlay.opening .hud-scanline,
+.intro-overlay.opening .intro-reactor-wrap {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Final fade-out after mask opens */
+.intro-overlay.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* ── SKIP BUTTON ── */
 .skip-btn {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
   background: transparent;
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  color: rgba(0, 212, 255, 0.6);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: rgba(0,212,255,0.5);
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 0.4rem 1rem;
@@ -408,36 +443,12 @@ ol {
 }
 
 .skip-btn:hover {
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(0,212,255,0.08);
   box-shadow: 0 0 15px var(--glow-cyan);
   color: var(--jarvis-cyan);
   border-color: var(--jarvis-cyan);
 }
 
-/* Helmet opening animation — the whole overlay slides up like a visor */
-.intro-overlay.opening {
-  animation: visorLift 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-
-@keyframes visorLift {
-  0% { clip-path: inset(0 0 0 0); }
-  100% { clip-path: inset(0 0 100% 0); }
-}
-
-@keyframes hudFadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hud-top-left { animation: hudFadeIn 0.5s ease forwards; animation-delay: 0.3s; }
-.hud-top-right { animation: hudFadeIn 0.5s ease forwards; animation-delay: 0.5s; }
-
-@keyframes scanDown {
-  0% { top: -2px; opacity: 0; }
-  5% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
 
 /* ------------------------------------------
    4. HEXAGONAL GRID BACKGROUND
