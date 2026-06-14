@@ -21,56 +21,63 @@
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="module" crossorigin src="/assets/index-DRh94TTv.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C3QgBeNu.css">
+    <script type="module" crossorigin src="/assets/index-B7Rda5s7.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-cCtCXKCM.css">
   </head>
   <body>
 
     <!-- ============================================ -->
-    <!-- SECTION 0: IRON MAN HELMET POV INTRO         -->
+    <!-- SECTION 0: IRON MAN HELMET HUD INTRO         -->
     <!-- ============================================ -->
     <div id="intro-overlay" class="intro-overlay helmet-pov">
-      <!-- Helmet mask shape (the dark frame around the eye slits) -->
-      <div class="helmet-mask" id="helmet-mask">
-        <div class="helmet-mask-inner"></div>
+
+      <!-- Hex grid background pattern -->
+      <div class="intro-hex-bg"></div>
+
+      <!-- HUD corner readouts -->
+      <div class="hud-readout hud-tl">
+        <span>SYS INTEGRITY: <b class="hud-cyan">94%</b></span>
+        <span>POWER LEVELS: <b class="hud-gold">100%</b></span>
+        <span>WEAPON: <b class="hud-cyan">READY</b></span>
+        <span>ARC REACTOR: <b class="hud-gold">STABLE</b></span>
+      </div>
+      <div class="hud-readout hud-tr">
+        <span>NEURAL NET: <b class="hud-gold">ONLINE</b></span>
+        <span>TARGET: <b class="hud-red">LOCKED</b></span>
+        <span>COMMS: <b class="hud-cyan">ACTIVE</b></span>
+        <span>ALTITUDE: <b class="hud-gold">253005</b></span>
       </div>
 
-      <!-- HUD elements inside the helmet -->
-      <div class="hud-layer" id="hud-layer">
-        <!-- Top-left system readouts -->
-        <div class="hud-readout hud-top-left">
-          <span class="hud-line">SYS: <span class="hud-val cyan">BOOTING</span></span>
-          <span class="hud-line">PWR: <span class="hud-val gold">100%</span></span>
-          <span class="hud-line">ARC: <span class="hud-val cyan">STABLE</span></span>
-        </div>
-
-        <!-- Top-right readouts -->
-        <div class="hud-readout hud-top-right">
-          <span class="hud-line">NEURAL: <span class="hud-val gold">ONLINE</span></span>
-          <span class="hud-line">TARGET: <span class="hud-val red">LOCKED</span></span>
-          <span class="hud-line">COMMS: <span class="hud-val cyan">ACTIVE</span></span>
-        </div>
-
-        <!-- Center targeting reticle -->
-        <div class="hud-reticle">
-          <div class="reticle-ring reticle-outer"></div>
-          <div class="reticle-ring reticle-inner"></div>
-          <div class="reticle-crosshair-h"></div>
-          <div class="reticle-crosshair-v"></div>
-          <div class="reticle-dot"></div>
-        </div>
-
-        <!-- Bottom status bar -->
-        <div class="hud-bottom-bar">
-          <div class="hud-progress-track">
-            <div class="hud-progress-fill" id="hud-progress"></div>
-          </div>
-          <p class="hud-status-text" id="intro-text">INITIALIZING JARVIS INTERFACE...</p>
-        </div>
-
-        <!-- Scan line sweeping down -->
-        <div class="hud-scanline" id="hud-scanline"></div>
+      <!-- Center arc reactor + targeting reticle -->
+      <div class="intro-reactor-wrap">
+        <div class="reticle-outer-ring"></div>
+        <div class="reticle-mid-ring"></div>
+        <div class="reactor-core-intro"></div>
+        <div class="reticle-cross-h"></div>
+        <div class="reticle-cross-v"></div>
+        <span class="lock-label lock-l">LOCK-ON</span>
+        <span class="lock-label lock-r">LOCK-ON</span>
       </div>
+
+      <!-- Animated scan line -->
+      <div class="hud-scanline"></div>
+
+      <!-- Bottom progress + status -->
+      <div class="hud-bottom-bar">
+        <div class="hud-progress-track">
+          <div class="hud-progress-fill" id="hud-progress"></div>
+        </div>
+        <p class="hud-status-text" id="intro-text">INITIALIZING J.A.R.V.I.S. INTERFACE...</p>
+      </div>
+
+      <!-- Bottom HUD label -->
+      <div class="hud-bottom-label">
+        <span>MARK XLVII &nbsp;|&nbsp; J.A.R.V.I.S. ONLINE &nbsp;|&nbsp; 1080p FEED</span>
+      </div>
+
+      <!-- Mask panels that slide apart -->
+      <div class="mask-top"></div>
+      <div class="mask-bottom"></div>
 
       <button class="skip-btn" id="skip-btn">SKIP ▶</button>
     </div>
