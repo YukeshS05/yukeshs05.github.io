@@ -336,23 +336,23 @@ ol {
   100% { top: 100%; opacity: 0; }
 }
 
-/* ── BOTTOM STATUS BAR ── */
+/* ── CENTER STATUS BAR ── */
 .hud-bottom-bar {
   position: absolute;
-  bottom: 14%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   width: 40%;
   max-width: 420px;
   text-align: center;
   z-index: 6;
   opacity: 0;
-  animation: hudFadeUp 0.8s ease 0.7s forwards;
+  animation: hudFadeCenter 0.8s ease 0.7s forwards;
 }
 
-@keyframes hudFadeUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+@keyframes hudFadeCenter {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 .hud-progress-track {
